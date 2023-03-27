@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nunito:wght@200;300;400;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  scroll-behavior: smooth;
+  color-scheme: dark;
+
+   /* font-family: 'Open Sans', sans-serif; */
+  /* font-family: 'Lato', sans-serif; */
+  /* font-family: 'Poppins', sans-serif; */
+  /* font-family: 'Nunito', sans-serif; */
+  /* font-family: 'Raleway', sans-serif; */
+  
+  --poppins: "Poppins", "sans-serif";
+  --sans: "Open Sans", "sans-serif";
+
+  line-height: 28px;
+  /* font-weight: 400; */
+
+  --primary: rgba(241, 241, 241, 1);
+  --secondary: rgba(25, 84, 15, 1);
+  --tertiary: #D1DBFF;
+  --quarternary: rgba(137, 137, 137, 1);
+  --grey: rgba(217, 217, 217, 1);
+  --blue: blue;
+  --pink: pink;
+  --peachpuff: peachpuff;
+  --wheat: wheat;
+  --tomato: tomato;
+  --snow: snow;
+  --papayawhip: papayawhip;
+  --maroon: rgba(94, 57, 55, 1);
+  --yellow: rgba(254, 195, 82, 1);
+  --black: rgba(32, 32, 32, 1);
+  --green: rgba(0, 0, 0, 0.22);
+  --gradient: linear-gradient(360deg, #ffffff00 0%, rgba(0, 0, 0, 0.438) 64.8%);
+  --overlay: rgba(0, 117, 73, 1);
+
+}
+
+html,
+body {
+  background: #fff;
+  overflow-x: hidden;
+}
+
+.App {
+  /* WAS 100VH - TEST TO CHECK WHETHER ITS WHY WE HAD ISSUE WITH THE PAGE DISPLAY ON SMALL DEVICES AND PC */
+  height: auto;
+  position: relative;
+}
+
+.bg-gradient-mask {
+  background: linear-gradient(360deg, #ffffff00 0%, rgba(0, 0, 0, 0.438) 64.8%);
+  /* background-size: 100%; */
+}
+
+.sectionBg {
+  background-image: url("./assets/participate_trimmed.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-overlay-mask {
+  background-color: var(--overlay); 
+  background-blend-mode: multiply;
+}
+
+.hamburger-react {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  display: none;
+}
+
+@media (max-width: 59em) {
+  .hamburger-react {
+    display: block;
+  }
+  .navbar {
+    justify-content: space-between;
+  }
+  .nav-item {
+    font-size: 4.8rem;
+  }
+  .navbar-menu {
+    background-color: rgba(0, 0, 0, 0.75);
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(100%);
+    /* overflow-x: hidden; */
+    transition: all ease-in 0.8s;
+
+    /* Hide the Navigation*/
+
+    /* display: none; -- This allows no Navigation at all */
+
+    /* Hide the Element visually */
+    opacity: 0;
+
+    /* Make it in accessible to Mouse and Keyboards */
+    pointer-events: none;
+
+    /* Hide it from screen readers*/
+    visibility: hidden;
+  }
+
+  .open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: Auto;
+    transform: translateX(0);
+
+    /* z-index: 10; */
+    /* transform: translateX(100%); */
+  }
+
+  .close {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateX(100%);
+  }
+}
